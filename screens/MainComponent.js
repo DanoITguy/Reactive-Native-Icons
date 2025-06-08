@@ -1,46 +1,101 @@
-import { Platform, View } from "react-native";
-import Constants from "expo-constants";
-import CampsiteInfoScreen from "./CampsiteInfoScreen";
-import DirectoryScreen from "./DirectoryScreen";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeScreen from "./HomeScreen";
+import CampsiteInfoScreen from './CampsiteInfoScreen';
+import { Platform, View } from 'react-native';
+import Constants from 'expo-constants';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import HomeScreen from './HomeScreen';
+import DirectoryScreen from './DirectoryScreen';
+import AboutScreen from './AboutScreen';
+import ContactScreen from './ContactScreen';
+
+
+
+
+
+
+
+
+
+
+
+//import AboutScreen from "./AboutScreen";
+//import ContactScreen from "./ContactScreen";
+
+//import { Platform, View } from 'react-native';
+//import { createStackNavigator } from '@react-navigation/stack';
+//import { createDrawerNavigator } from '@react-navigation/drawer';
+//import HomeScreen from './HomeScreen';
+//import DirectoryScreen from './DirectoryScreen';
+//import AboutScreen from './AboutScreen';
+//import ContactScreen from './ContactScreen';
+
+//import { Platform, View } from 'react-native';
+//import Constants from 'expo-constants';
+//import { createStackNavigator } from '@react-navigation/stack';
+//import { createDrawerNavigator } from '@react-navigation/drawer';
+//import HomeScreen from './HomeScreen';
+//import DirectoryScreen from './DirectoryScreen';
+//import CampsiteInfoScreen from './CampsiteInfoScreen';
+//import AboutScreen from './AboutScreen';
+//import ContactScreen from './ContactScreen';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 const screenOptions = {
-    headerTintColor: "#fff",
-    headerStyle: { backgroundColor: "#5637DD" },
+    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: '#5637DD' }
 };
 
 const HomeNavigator = () => {
-    const Stack = createStackNavigator();
     return (
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen
-                name="Home"
+                name='Home'
                 component={HomeScreen}
-                options={{ title: "Home" }}
+                options={{ title: 'Home' }}
             />
         </Stack.Navigator>
     );
 };
 
 const DirectoryNavigator = () => {
-    const Stack = createStackNavigator();
     return (
-        <Stack.Navigator initialRouteName="Directory" screenOptions={screenOptions}>
+        <Stack.Navigator initialRouteName='Directory' screenOptions={screenOptions}>
             <Stack.Screen
-                name="Directory"
+                name='Directory'
                 component={DirectoryScreen}
-                options={{ title: "Campsite Directory" }}
+                options={{ title: 'Campsite Directory' }}
             />
             <Stack.Screen
-                name="CampsiteInfo"
+                name='CampsiteInfo'
                 component={CampsiteInfoScreen}
                 options={({ route }) => ({
-                    title: route.params.campsite.name,
+                    title: route.params.campsite.name
                 })}
+            />
+        </Stack.Navigator>
+    );
+};
+
+const AboutNavigator = () => {
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='About'
+                component={AboutScreen}
+            />
+        </Stack.Navigator>
+    );
+};
+
+const ContactNavigator = () => {
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='Contact'
+                component={ContactScreen}
+                options={{ title: 'Contact Us' }}
             />
         </Stack.Navigator>
     );
@@ -51,30 +106,44 @@ const Main = () => {
         <View
             style={{
                 flex: 1,
-                paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
+                paddingTop:
+                    Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}
         >
             <Drawer.Navigator
-                initialRouteName="HomeNav"
-                screenOptions={{
-                    drawerStyle: { backgroundColor: "#CEC8FF" },
-                    headerShown: true,
-                }}
+                initialRouteName='Home'
+                drawerStyle={{ backgroundColor: '#CEC8FF' }}
             >
                 <Drawer.Screen
-                    name="HomeNav"
+                    name='HomeNav'
                     component={HomeNavigator}
-                    options={{
-                        title: "Home",
-                        headerShown: false,
+                    options={{ 
+                        title: 'Home',
+                        headerShown: false
                     }}
                 />
                 <Drawer.Screen
-                    name="DirectoryNav"
+                    name='DirectoryNav'
                     component={DirectoryNavigator}
-                    options={{
-                        title: "Campsite Directory",
-                        headerShown: false,
+                    options={{ 
+                        title: 'Directory',
+                        headerShown: false
+                    }}
+                />
+                <Drawer.Screen
+                    name='AboutNav'
+                    component={AboutNavigator}
+                    options={{ 
+                        title: 'About Us',
+                        headerShown: false
+                    }}
+                />
+                <Drawer.Screen
+                    name='ContactNav'
+                    component={ContactNavigator}
+                    options={{ 
+                        title: 'Contact Us',
+                        headerShown: false
                     }}
                 />
             </Drawer.Navigator>

@@ -1,3 +1,8 @@
+import bootStrapImg from '../assets/images/bootstrap-logo.png';
+import gitImg from '../assets/images/git-logo.png';
+import mongoImg from '../assets/images/mongo-logo.png';
+
+
 export const PARTNERS = [
     {
         id: 0,
