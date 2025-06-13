@@ -40,7 +40,9 @@ import ContactScreen from './ContactScreen';
 //import ContactScreen from './ContactScreen';
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
+////////// FIX 1: While you have only one Drawer, you need to instantiate a new Stack for each screen. I will comment thids out here and move it into each Stck definition.
+/*  const Stack = createStackNavigator();   */
+////////// END FIX 1
 
 const screenOptions = {
     headerTintColor: '#fff',
@@ -48,6 +50,10 @@ const screenOptions = {
 };
 
 const HomeNavigator = () => {
+    ////////// NOTE: Here is where we instantiate the Stack.
+    const Stack = createStackNavigator();
+    ////////// END NOTE
+
     return (
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen
@@ -60,6 +66,10 @@ const HomeNavigator = () => {
 };
 
 const DirectoryNavigator = () => {
+    ////////// NOTE: Here is where we instantiate the Stack.
+    const Stack = createStackNavigator();
+    ////////// END NOTE
+
     return (
         <Stack.Navigator initialRouteName='Directory' screenOptions={screenOptions}>
             <Stack.Screen
@@ -79,6 +89,10 @@ const DirectoryNavigator = () => {
 };
 
 const AboutNavigator = () => {
+    ////////// FIX 2: Here is where we instantiate the Stack.
+    const Stack = createStackNavigator();
+    ////////// END FIX 2
+
     return (
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen
@@ -90,6 +104,10 @@ const AboutNavigator = () => {
 };
 
 const ContactNavigator = () => {
+    ////////// FIX 3: Here is where we instantiate the Stack.
+    const Stack = createStackNavigator();
+    ////////// END FIX 3
+
     return (
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen
@@ -117,7 +135,7 @@ const Main = () => {
                 <Drawer.Screen
                     name='HomeNav'
                     component={HomeNavigator}
-                    options={{ 
+                    options={{
                         title: 'Home',
                         headerShown: false
                     }}
@@ -125,7 +143,7 @@ const Main = () => {
                 <Drawer.Screen
                     name='DirectoryNav'
                     component={DirectoryNavigator}
-                    options={{ 
+                    options={{
                         title: 'Directory',
                         headerShown: false
                     }}
@@ -133,7 +151,7 @@ const Main = () => {
                 <Drawer.Screen
                     name='AboutNav'
                     component={AboutNavigator}
-                    options={{ 
+                    options={{
                         title: 'About Us',
                         headerShown: false
                     }}
@@ -141,7 +159,7 @@ const Main = () => {
                 <Drawer.Screen
                     name='ContactNav'
                     component={ContactNavigator}
-                    options={{ 
+                    options={{
                         title: 'Contact Us',
                         headerShown: false
                     }}
