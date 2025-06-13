@@ -21,6 +21,7 @@ https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
 To clear this warning, run:
 `watchman watch-del '/Users/danielallen/Desktop/Nucamp Folder/4-React-Native.nosync/nucampsite' ; watchman watch-project '/Users/danielallen/Desktop/Nucamp Folder/4-React-Native.nosync/nucampsite'`
 
+2..
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 █ ▄▄▄▄▄ █▄▀▀▄▄ ██▄█ ▄▄▄▄▄ █
 █ █   █ ███▄█  ▀▄██ █   █ █
@@ -36,7 +37,7 @@ To clear this warning, run:
 █ █▄▄▄█ █▀ ██▄█  ▄█▀▀▄█   █
 █▄▄▄▄▄▄▄█▄█▄█▄▄▄▄▄▄█▄▄███▄█
 
-› Metro waiting on exp://192.168.1.44:8081
+3..› Metro waiting on exp://192.168.1.44:8081
 › Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
 
 › Web is waiting on http://localhost:8081
